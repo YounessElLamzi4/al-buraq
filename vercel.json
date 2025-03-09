@@ -2,15 +2,19 @@
   "version": 2,
   "public": true,
   "name": "al-buraq",
-  "rewrites": [
+  "builds": [
     {
-      "source": "/(.*)",
-      "destination": "/api"
+      "src": "api/index.js",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": ["dist/al-buraq/**"]
+      }
     }
   ],
-  "functions": {
-    "api/index.js": {
-      "includeFiles": "dist/al-buraq/**"
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/api/index.js"
     }
-  }
+  ]
 }
