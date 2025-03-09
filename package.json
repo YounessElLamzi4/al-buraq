@@ -4,12 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build && ng run al-buraq:server",
-    "build:vercel": "npm run build",
+    "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "build:ssr": "ng build && ng run al-buraq:server",
-    "serve:ssr": "node dist/al-buraq/server/main.server.mjs"
+    "vercel-build": "ng build && node dist/al-buraq/server/server.mjs"
   },
   "engines": {
     "node": "22.x",
