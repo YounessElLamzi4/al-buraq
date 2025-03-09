@@ -9,7 +9,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "build:ssr": "ng build && ng run al-buraq:server",
-    "serve:ssr": "node dist/al-buraq/server/main.js"
+    "serve:ssr": "node dist/al-buraq/server/main.server.mjs"
   },
   "engines": {
     "node": "22.x",
