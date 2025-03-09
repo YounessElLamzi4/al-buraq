@@ -2,12 +2,15 @@
   "version": 2,
   "builds": [
     {
-      "src": "dist/al-buraq/server/main.js",
-      "use": "@vercel/node"
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist/al-buraq/browser"
+      }
     },
     {
-      "src": "dist/al-buraq/browser/**",
-      "use": "@vercel/static"
+      "src": "dist/al-buraq/server/main.js",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
@@ -15,5 +18,10 @@
       "src": "/(.*)",
       "dest": "dist/al-buraq/server/main.js"
     }
-  ]
+  ],
+  "build": {
+    "env": {
+      "NODE_ENV": "production"
+    }
+  }
 }
