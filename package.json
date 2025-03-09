@@ -9,6 +9,7 @@
     "test": "ng test",
     "vercel-build": "ng build && node dist/al-buraq/server/server.mjs"
   },
+  "type": "module",
   "engines": {
     "node": "22.x",
     "npm": "10.x"
