@@ -13,4 +13,138 @@
     color: colors.$color-text;
     font-size: typography.$font-size-lg;
   }
+
+  .prayer-section-row {
+    display: flex;
+    gap: spacing.$spacing-8;
+    margin-top: spacing.$spacing-4;
+
+    &--active {
+      background-color: colors.$color-green-light;
+      padding: 1rem 0;
+      border-radius: 12px;
+    }
+
+    &--in-active {
+      opacity: 0.5;
+    }
+
+    .next-prayer {
+      color: colors.$color-text;
+      font-weight: typography.$font-weight-semibold;
+    }
+
+    .past-prayer {
+      opacity: 0.5;
+      color: colors.$color-text;
+    }
+
+    .future-prayer {
+      color: colors.$color-text;
+    }
+
+    &__item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: spacing.$spacing-2;
+      min-width: 50px;
+
+      &:first-of-type {
+        width: 120px;
+      }
+
+      &-time {
+        color: colors.$color-text;
+        font-size: typography.$font-size-md;
+        font-weight: typography.$font-weight-semibold;
+      }
+
+      &-title {
+        color: colors.$color-text;
+        font-size: typography.$font-size-sm;
+        font-weight: typography.$font-weight-bold;
+      }
+    }
+  }
+}
+
+@container (max-width: 800px) {
+  :host {
+    .prayer-section {
+      display: flex;
+      flex-direction: row;
+      justify-content: stretch;
+      gap: 1rem;
+    }
+    .prayer-section-row {
+      display: flex;
+      flex-direction: column;
+      gap: spacing.$spacing-6;
+      margin-top: spacing.$spacing-4;
+
+      &--active {
+        padding: unset;
+        padding: 0 0.5rem;
+      }
+
+      &--in-active {
+        display: flex;
+      }
+
+      &__item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: spacing.$spacing-1;
+        min-width: unset;
+        min-height: 25px;
+
+        &:first-of-type {
+          width: auto;
+        }
+      }
+    }
+  }
+}
+
+@container (max-width: 400px) {
+  :host {
+    .prayer-section {
+      display: flex;
+      flex-direction: row;
+      justify-content: stretch;
+      gap: 1rem;
+    }
+    .prayer-section-row {
+      display: flex;
+      flex-direction: column;
+      gap: spacing.$spacing-6;
+      margin-top: spacing.$spacing-4;
+
+      &--active {
+        padding: unset;
+        padding: 0 0.5rem;
+      }
+
+      &--in-active {
+        display: none;
+      }
+
+      &__item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: spacing.$spacing-1;
+        min-width: unset;
+        min-height: 25px;
+
+        &:first-of-type {
+          width: auto;
+        }
+      }
+    }
+  }
 }

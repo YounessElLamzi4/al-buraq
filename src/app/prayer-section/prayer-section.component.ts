@@ -11,6 +11,7 @@ import {
   PrayerTimesDTO,
 } from './prayer-section.service';
 import { formatDate } from '@angular/common';
+import { computed } from '@angular/core';
 
 interface PrayerTimes {
   date: string;
@@ -38,14 +39,52 @@ export class PrayerSectionComponent {
   public currentDayPrayer = signal<PrayerTimes | null>(null);
   public nextDayPrayer = signal<PrayerTimes | null>(null);
 
+  public prayerNames = ['Fajr', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'] as const;
+
   public constructor() {
     this.prayerService.getPrayerTimesForTodayAndTomorrow().subscribe({
-      next: ({ today, tomorrow }) => {
+      next: ({
+        today,
+        tomorrow,
+      }: {
+        today: PrayerTimesDTO;
+        tomorrow: PrayerTimesDTO;
+      }) => {
         this.currentDayPrayer.set(convertResponseToPrayerTimes(today));
         this.nextDayPrayer.set(convertResponseToPrayerTimes(tomorrow));
       },
-      error: (err) => console.error('Error fetching prayer times:', err),
+      error: (err: any) => console.error('Error fetching prayer times:', err),
     });
+  }
+
+  public nextPrayer = computed(() => {
+    const prayers = this.currentDayPrayer()?.timings;
+    if (!prayers) return null;
+
+    const now = new Date();
+
+    for (const prayer of this.prayerNames) {
+      const prayerTime = new Date();
+      const [hours, minutes] = prayers[prayer].split(':').map(Number);
+      prayerTime.setHours(hours, minutes, 0, 0);
+
+      if (now < prayerTime) {
+        return prayer;
+      }
+    }
+    return null;
+  });
+
+  public isPastPrayer(prayer: keyof PrayerTimes['timings']): boolean {
+    const prayers = this.currentDayPrayer()?.timings;
+    if (!prayers) return false;
+
+    const now = new Date();
+    const prayerTime = new Date();
+    const [hours, minutes] = prayers[prayer].split(':').map(Number);
+    prayerTime.setHours(hours, minutes, 0, 0);
+
+    return now > prayerTime; // ✅ Returns `true` if prayer time has passed
   }
 }
 

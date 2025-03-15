@@ -3,50 +3,53 @@
     <h2>Gebedstijden</h2>
   </card-title>
   <card-content>
-    <div class="prayer-day">
-      <h3>Vandaag ({{ currentDayPrayer()?.date }})</h3>
-      <ul>
-        <li>
-          <strong>Fajr:</strong> {{ currentDayPrayer()?.timings?.Fajr || "--" }}
-        </li>
-        <li>
-          <strong>Dhuhr:</strong>
-          {{ currentDayPrayer()?.timings?.Dhuhr || "--" }}
-        </li>
-        <li>
-          <strong>Asr:</strong> {{ currentDayPrayer()?.timings?.Asr || "--" }}
-        </li>
-        <li>
-          <strong>Maghrib:</strong>
-          {{ currentDayPrayer()?.timings?.Maghrib || "--" }}
-        </li>
-        <li>
-          <strong>Isha:</strong> {{ currentDayPrayer()?.timings?.Isha || "--" }}
-        </li>
-      </ul>
-    </div>
+    <div class="prayer-section">
+      <div class="prayer-section-row">
+        <div class="prayer-section-row__item">
+          <span></span>
+        </div>
+        @for (prayer of prayerNames; track prayer) {
+        <div
+          class="prayer-section-row__item"
+          [class.next-prayer]="prayer === nextPrayer()"
+          [class.past-prayer]="isPastPrayer(prayer)"
+          [class.future-prayer]="!isPastPrayer(prayer)"
+        >
+          <span class="prayer-section-row__item-title">{{ prayer }}</span>
+        </div>
+        }
+      </div>
 
-    <!-- Tomorrow's Prayer Times -->
-    <div class="prayer-day">
-      <h3>Morgen ({{ nextDayPrayer()?.date }})</h3>
-      <ul>
-        <li>
-          <strong>Fajr:</strong> {{ nextDayPrayer()?.timings?.Fajr || "--" }}
-        </li>
-        <li>
-          <strong>Dhuhr:</strong> {{ nextDayPrayer()?.timings?.Dhuhr || "--" }}
-        </li>
-        <li>
-          <strong>Asr:</strong> {{ nextDayPrayer()?.timings?.Asr || "--" }}
-        </li>
-        <li>
-          <strong>Maghrib:</strong>
-          {{ nextDayPrayer()?.timings?.Maghrib || "--" }}
-        </li>
-        <li>
-          <strong>Isha:</strong> {{ nextDayPrayer()?.timings?.Isha || "--" }}
-        </li>
-      </ul>
+      <!-- Today's Prayer Times -->
+      <div class="prayer-section-row prayer-section-row--active">
+        <div class="prayer-section-row__item">
+          <span class="prayer-section-row__item-time">{{
+            currentDayPrayer()?.date
+          }}</span>
+        </div>
+        @for (prayer of prayerNames; track prayer) {
+        <div
+          class="prayer-section-row__item"
+          [class.next-prayer]="prayer === nextPrayer()"
+          [class.past-prayer]="isPastPrayer(prayer)"
+          [class.future-prayer]="!isPastPrayer(prayer)"
+        >
+          <span>{{ currentDayPrayer()?.timings?.[prayer] || '--' }}</span>
+        </div>
+        }
+      </div>
+
+      <!-- Tomorrow's Prayer Times -->
+      <div class="prayer-section-row prayer-section-row--in-active">
+        <div class="prayer-section-row__item">
+          <span>{{ nextDayPrayer()?.date }}</span>
+        </div>
+        @for (prayer of prayerNames; track prayer) {
+        <div class="prayer-section-row__item">
+          <span>{{ nextDayPrayer()?.timings?.[prayer] || '--' }}</span>
+        </div>
+        }
+      </div>
     </div>
   </card-content>
 </app-card-layout>
