@@ -1,0 +1,9 @@
+@use "../styles/utilities/spacing.scss";
+
+:host {
+  display: block;
+
+  > .app-content-container {
+    padding: spacing.$spacing-3 spacing.$spacing-20;
+  }
+}

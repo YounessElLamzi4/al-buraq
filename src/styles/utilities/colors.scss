@@ -1,12 +1,10 @@
-
 $color-primary: #000000;
-$color-secondary: #CFE3D3;
-$color-accent: #E79724;
-$color-accent-hover: darken($color-accent, 10%);
-$color-brown: #6B3F2C;
+$color-secondary: #cfe3d3;
+$color-accent: #e79724;
+$color-brown: #6b3f2c;
 
-$color-background: #F8F9F5;
-$color-text: #2C2C2C;
+$color-background: #f8f9f5;
+$color-text: #2c2c2c;
 
 // Grayscale
 $color-gray-100: #f7f7f7;
@@ -18,3 +16,7 @@ $color-gray-600: #7e7e7e;
 $color-gray-700: #626262;
 $color-gray-800: #515151;
 $color-gray-900: #3b3b3b;
+
+// variants shades
+$color-accent-light: rgba(231, 151, 36, 0.7);
+$color-accent-hover: rgba(231, 151, 36, 0.9);

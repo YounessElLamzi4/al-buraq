@@ -1,0 +1,56 @@
+@use "../../styles/utilities/colors.scss";
+@use "../../styles/utilities/spacing.scss";
+@use "../../styles/utilities/typography.scss";
+
+:host {
+  display: block;
+  background-color: colors.$color-accent-light;
+  padding: spacing.$spacing-4;
+  border-radius: 12px;
+
+  h2 {
+    color: colors.$color-text;
+  }
+
+  .activity-content-container {
+    display: flex;
+    align-items: center;
+    gap: spacing.$spacing-4;
+    flex-direction: row;
+    &__place {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      > span:first-of-type {
+        text-decoration: underline;
+      }
+      > span:last-of-type {
+        font-weight: typography.$font-weight-bold;
+      }
+    }
+
+    &__person {
+      display: flex;
+      gap: 1rem;
+      flex-direction: row;
+
+      &-image {
+        width: 60px;
+        border-radius: 50%;
+      }
+
+      &-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        > span:first-of-type {
+          font-weight: typography.$font-weight-semibold;
+        }
+        > span:last-of-type {
+          font-size: typography.$font-size-xs;
+        }
+      }
+    }
+  }
+}

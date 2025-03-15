@@ -1,0 +1,20 @@
+:host {
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+  > .card-layout-item {
+    &:first-of-type {
+      display: flex;
+      align-items: center;
+      flex-basis: 20%;
+    }
+
+    &:last-of-type {
+      display: flex;
+      flex: 1;
+      justify-content: center;
+      align-items: flex-start;
+    }
+  }
+}
