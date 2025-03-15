@@ -4,21 +4,21 @@
 
 @font-face {
   font-family: "Inter";
-  src: url("/assets/fonts/Inter-VariableFont_opsz,wght") format("ttf");
+  src: url("/assets/fonts/Inter-VariableFont_opsz,wght") format("woff");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Poppins";
-  src: url("/assets/fonts/Poppins-Regular") format("ttf");
+  font-family: "Poppins-Regular";
+  src: url("/assets/fonts/Poppins-Regular") format("woff");
 
   font-weight: 400;
   font-style: normal;
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: "Inter", "Poppins-Regular", sans-serif;
 }
 
 body {
