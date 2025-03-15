@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'styles/utilities/reset.scss';
+@use 'styles/utilities/typography.scss';
+@use 'styles/utilities/colors.scss';
+
+
+body {
+  font-family: typography.$font-primary, sans-serif;
+  color: colors.$color-text;
+  background-color: colors.$color-background;
+}

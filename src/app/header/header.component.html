@@ -1,1 +1,11 @@
-<p>header works!</p>
+<div class="header-logo-container">
+  <img src="assets/images/logo.svg" alt="logo" />
+</div>
+
+<div class="header-links-container">
+  <a [routerLink]="'/diensten'" fragment="services-section">Diensten</a>
+  <a [routerLink]="'/contact'" fragment="contact-section">Contact</a>
+  <button class="header-button">
+    <a [routerLink]="'/doneren'" fragment="donation-section">Doneren</a>
+  </button>
+</div>
