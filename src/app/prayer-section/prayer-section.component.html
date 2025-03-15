@@ -1,1 +1,52 @@
-<p>prayer-section works!</p>
+<app-card-layout>
+  <card-title>
+    <h2>Gebedstijden</h2>
+  </card-title>
+  <card-content>
+    <div class="prayer-day">
+      <h3>Vandaag ({{ currentDayPrayer()?.date }})</h3>
+      <ul>
+        <li>
+          <strong>Fajr:</strong> {{ currentDayPrayer()?.timings?.Fajr || "--" }}
+        </li>
+        <li>
+          <strong>Dhuhr:</strong>
+          {{ currentDayPrayer()?.timings?.Dhuhr || "--" }}
+        </li>
+        <li>
+          <strong>Asr:</strong> {{ currentDayPrayer()?.timings?.Asr || "--" }}
+        </li>
+        <li>
+          <strong>Maghrib:</strong>
+          {{ currentDayPrayer()?.timings?.Maghrib || "--" }}
+        </li>
+        <li>
+          <strong>Isha:</strong> {{ currentDayPrayer()?.timings?.Isha || "--" }}
+        </li>
+      </ul>
+    </div>
+
+    <!-- Tomorrow's Prayer Times -->
+    <div class="prayer-day">
+      <h3>Morgen ({{ nextDayPrayer()?.date }})</h3>
+      <ul>
+        <li>
+          <strong>Fajr:</strong> {{ nextDayPrayer()?.timings?.Fajr || "--" }}
+        </li>
+        <li>
+          <strong>Dhuhr:</strong> {{ nextDayPrayer()?.timings?.Dhuhr || "--" }}
+        </li>
+        <li>
+          <strong>Asr:</strong> {{ nextDayPrayer()?.timings?.Asr || "--" }}
+        </li>
+        <li>
+          <strong>Maghrib:</strong>
+          {{ nextDayPrayer()?.timings?.Maghrib || "--" }}
+        </li>
+        <li>
+          <strong>Isha:</strong> {{ nextDayPrayer()?.timings?.Isha || "--" }}
+        </li>
+      </ul>
+    </div>
+  </card-content>
+</app-card-layout>

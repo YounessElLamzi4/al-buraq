@@ -8,6 +8,11 @@ import { PrayerSectionComponent } from './prayer-section/prayer-section.componen
 import { SocialsSectionComponent } from './socials-section/socials-section.component';
 import { FooterComponent } from './footer/footer.component';
 import { ServicesSectionComponent } from './services-section/services-section.component';
+import {
+  HttpClientModule,
+  provideHttpClient,
+  withInterceptorsFromDi,
+} from '@angular/common/http';
 
 @Component({
   selector: 'app-root',

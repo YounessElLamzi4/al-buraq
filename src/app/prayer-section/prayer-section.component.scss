@@ -1,0 +1,16 @@
+@use "../../styles/utilities/spacing.scss";
+@use "../../styles/utilities/typography.scss";
+@use "../../styles/utilities/colors.scss";
+
+:host {
+  display: block;
+  background-color: #fff;
+  padding: spacing.$spacing-4;
+  border-radius: 12px;
+  container-type: inline-size;
+
+  h2 {
+    color: colors.$color-text;
+    font-size: typography.$font-size-lg;
+  }
+}
