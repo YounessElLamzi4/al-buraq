@@ -1,12 +1,13 @@
-@use '../../styles/utilities/typography.scss';
-@use '../../styles/utilities/spacing.scss';
-@use '../../styles/utilities/colors.scss';
+@use "../../styles/utilities/typography.scss";
+@use "../../styles/utilities/spacing.scss";
+@use "../../styles/utilities/colors.scss";
 
 :host {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: spacing.$spacing-4 spacing.$spacing-16;
+  container-type: inline-size;
 
   .header-logo-container {
     display: flex;
@@ -37,11 +38,57 @@
       border-radius: 25px;
       &:hover {
         cursor: pointer;
-      background: colors.$color-accent-hover;
+        background: colors.$color-accent-hover;
       }
 
       > a {
         color: inherit;
+      }
+    }
+  }
+}
+
+@container (max-width: 600px) {
+  :host {
+    padding: spacing.$spacing-2 spacing.$spacing-2;
+
+    .header-logo-container {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+
+      > img {
+        width: 100px;
+      }
+    }
+
+    .header-links-container {
+      display: flex;
+      align-items: center;
+      gap: spacing.$spacing-2;
+      font-family: typography.$font-secondary, sans-serif;
+      font-weight: typography.$font-weight-semibold;
+
+      a {
+        color: colors.$color-text;
+        font-size: typography.$font-size-xs;
+      }
+
+      button {
+        padding: spacing.$spacing-2 spacing.$spacing-4;
+        border-radius: 4px;
+        background: colors.$color-accent;
+        color: colors.$color-background;
+        border-radius: 25px;
+        font-size: typography.$font-size-xs;
+        &:hover {
+          cursor: pointer;
+          background: colors.$color-accent-hover;
+        }
+
+        > a {
+          color: inherit;
+        }
       }
     }
   }

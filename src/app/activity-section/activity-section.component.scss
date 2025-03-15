@@ -7,9 +7,11 @@
   background-color: colors.$color-accent-light;
   padding: spacing.$spacing-4;
   border-radius: 12px;
+  container-type: inline-size;
 
   h2 {
     color: colors.$color-text;
+    font-size: typography.$font-size-lg;
   }
 
   .activity-content-container {
@@ -42,7 +44,7 @@
       &-info {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: stretch;
 
         > span:first-of-type {
           font-weight: typography.$font-weight-semibold;
@@ -50,6 +52,32 @@
         > span:last-of-type {
           font-size: typography.$font-size-xs;
         }
+      }
+    }
+  }
+}
+
+@container (max-width: 580px) {
+  :host {
+    display: block;
+    background-color: colors.$color-accent-light;
+    padding: spacing.$spacing-4;
+    border-radius: 12px;
+    container-type: inline-size;
+
+    h2 {
+      color: colors.$color-text;
+      font-size: typography.$font-size-lg;
+    }
+
+    .activity-content-container {
+      display: flex;
+      align-items: flex-start;
+      gap: spacing.$spacing-4;
+      flex-direction: column-reverse;
+
+      &__person {
+        justify-content: stretch;
       }
     }
   }

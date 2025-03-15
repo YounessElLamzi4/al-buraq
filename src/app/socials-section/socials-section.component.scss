@@ -28,3 +28,9 @@
     transform: scale(1.1); /* Slight zoom on hover */
   }
 }
+
+@media (max-width: 600px) {
+  :host {
+    left: spacing.$spacing-2;
+  }
+}

@@ -1,0 +1,79 @@
+@use "../../styles/utilities/colors.scss";
+@use "../../styles/utilities/spacing.scss";
+@use "../../styles/utilities/typography.scss";
+
+:host {
+  display: block;
+  background-color: colors.$color-green-light;
+  padding: spacing.$spacing-4;
+  border-radius: 12px;
+  container-type: inline-size;
+
+  h2 {
+    color: colors.$color-text;
+    font-size: typography.$font-size-lg;
+  }
+
+  .services-content-container {
+    display: flex;
+    justify-content: center;
+    gap: spacing.$spacing-4;
+
+    &__item {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      gap: spacing.$spacing-2;
+
+      > span:first-of-type {
+        font-weight: typography.$font-weight-bold;
+      }
+
+      > span:nth-of-type(2) {
+        font-size: typography.$font-size-xs;
+        line-height: 1.8;
+      }
+
+      button {
+        padding: spacing.$spacing-2 spacing.$spacing-2;
+        border-radius: 4px;
+        background: colors.$color-accent;
+        color: colors.$color-background;
+        border-radius: 25px;
+        display: flex;
+        align-items: center;
+        font-size: typography.$font-size-xs;
+        gap: 0.5rem;
+        &:hover {
+          cursor: pointer;
+          background: colors.$color-accent-hover;
+        }
+
+        > a {
+          color: inherit;
+        }
+      }
+    }
+  }
+}
+
+@container (max-width: 600px) {
+  :host {
+    .services-content-container {
+      display: flex;
+      justify-content: center;
+      gap: spacing.$spacing-4;
+      flex-direction: column;
+
+      &__item {
+        align-items: center;
+
+        > span:nth-of-type(2) {
+          font-size: typography.$font-size-xs;
+          line-height: 1.8;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
